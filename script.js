@@ -7,7 +7,7 @@ let totalImages = 0;
 let photosArray = [];
 
 // Unsplash API
-let count = 20;
+let count = 5;
 let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${config.apiKey}&count=${count}`;
 
 // Check if all images were loaded
@@ -16,6 +16,8 @@ function imageLoaded() {
     if (imagesLoaded === totalImages) {
         ready = true;
         loader.hidden = true;
+        count = 20;
+        apiUrl = `https://api.unsplash.com/photos/random/?client_id=${config.apiKey}&count=${count}`;
     }
 }
 
@@ -57,9 +59,6 @@ function displayPhotos() {
         imageContainer.appendChild(item);
     });
 }
-
-
-
 
 // Get photos from Unsplash API
 async function getPhotos() {
